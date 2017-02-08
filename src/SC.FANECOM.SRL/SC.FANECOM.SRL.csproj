@@ -68,11 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdjustProducts.cs">
+    <Compile Include="Forms\AdjustProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdjustProducts.Designer.cs">
-      <DependentUpon>AdjustProducts.cs</DependentUpon>
+    <Compile Include="Forms\AdjustProductsForm.Designer.cs">
+      <DependentUpon>AdjustProductsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FaneComDatabaseDataSet.cs">
       <DependentUpon>FaneComDatabaseDataSet.xsd</DependentUpon>
@@ -82,21 +82,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FaneComDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\ReceptionNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Forms\ReceptionNote.Designer.cs">
+      <DependentUpon>ReceptionNote.cs</DependentUpon>
     </Compile>
     <Compile Include="Pdf.cs" />
     <Compile Include="PdfFilePrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdjustProducts.resx">
-      <DependentUpon>AdjustProducts.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AdjustProductsForm.resx">
+      <DependentUpon>AdjustProductsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ReceptionNote.resx">
+      <DependentUpon>ReceptionNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,14 +133,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\packages\ABCpdf.10.0.0.0\bin\ABCpdf10-32.dll">
-      <Link>ABCpdf10-32.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\packages\ABCpdf.10.0.0.0\bin\ABCpdf10-64.dll">
-      <Link>ABCpdf10-64.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\packages\ABCpdf.10.0.0.0\bin\PrintHook32.dll">
       <Link>PrintHook32.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -153,14 +145,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{656b907a-de87-4ae3-8d2d-ef0618f43471}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

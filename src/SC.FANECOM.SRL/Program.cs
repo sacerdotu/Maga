@@ -16,7 +16,7 @@ namespace SC.FANECOM.SRL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdjustProducts());
+            Application.Run(new AdjustProductsForm());
         }
     }
 }

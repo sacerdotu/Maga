@@ -1,0 +1,5 @@
+C:\Users\george\Documents\Maga\src\Model\bin\Debug\Model.dll
+C:\Users\george\Documents\Maga\src\Model\bin\Debug\Model.pdb
+C:\Users\george\Documents\Maga\src\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\george\Documents\Maga\src\Model\obj\Debug\Model.dll
+C:\Users\george\Documents\Maga\src\Model\obj\Debug\Model.pdb
