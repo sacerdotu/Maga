@@ -12,6 +12,7 @@ using iTextSharp.text.pdf;
 using log4net;
 using log4net.Config;
 using Font = iTextSharp.text.Font;
+using FontFamily = iTextSharp.text.Font.FontFamily;
 
 namespace SC.FANECOM.SRL
 {
@@ -247,7 +248,7 @@ namespace SC.FANECOM.SRL
 
         private PdfPCell GetHeaderCell(string text, int hasborder = 1, int hAlignment = 1)
         {
-            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(2, 10.0f)));
+            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(FontFamily.TIMES_ROMAN, 10.0f)));
             cell.Colspan = 1;
             cell.Border = hasborder;
             cell.HorizontalAlignment = hAlignment;
@@ -256,7 +257,7 @@ namespace SC.FANECOM.SRL
 
         private PdfPCell GetNormalCell(string text)
         {
-            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(2, 8.0f)));
+            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(FontFamily.TIMES_ROMAN, 8.0f)));
             cell.Colspan = 1;
             cell.Border = 1;
             cell.HorizontalAlignment = 1;
@@ -266,7 +267,7 @@ namespace SC.FANECOM.SRL
 
         private PdfPCell GetNormalCellAdaos(string text)
         {
-            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(2, 8.0f)));
+            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(FontFamily.TIMES_ROMAN, 8.0f)));
             cell.Colspan = 1;
             cell.Border = 0;
             cell.HorizontalAlignment = 1;
@@ -276,7 +277,7 @@ namespace SC.FANECOM.SRL
 
         private PdfPCell GetHeaderCellAdaos(string text)
         {
-            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(2, 10.0f)));
+            PdfPCell cell = new PdfPCell(new Phrase(text, new Font(FontFamily.TIMES_ROMAN, 10.0f)));
             cell.Colspan = 1;
             cell.Border = 0;
             cell.HorizontalAlignment = 1;
@@ -486,7 +487,7 @@ namespace SC.FANECOM.SRL
             PdfPTable adaos = new PdfPTable(2);
             adaosWidths = new float[] { 1f, 3f };
             adaos.SetWidths(adaosWidths);
-            PdfPCell adaosHead = new PdfPCell(new Phrase("Adaos comercial", new Font(2, 10.0f)));
+            PdfPCell adaosHead = new PdfPCell(new Phrase("Adaos comercial", new Font(FontFamily.TIMES_ROMAN, 10.0f)));
             adaosHead.Colspan = 2;
             adaosHead.Border = 0;
             adaosHead.HorizontalAlignment = 1;
