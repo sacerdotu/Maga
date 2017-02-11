@@ -11,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SC.FANECOM.SRL
+namespace DMC
 {
     public partial class AdjustProducts : Form
     {
-        string ConnStr = ConfigurationManager.ConnectionStrings["BazaLuFane"].ConnectionString;
+        string ConnStr = ConfigurationManager.ConnectionStrings["BazaLuDMC"].ConnectionString;
         AutoCompleteStringCollection MyProductCollection = new AutoCompleteStringCollection();
         public AdjustProducts()
         {

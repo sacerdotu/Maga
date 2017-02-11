@@ -14,7 +14,7 @@ using log4net.Config;
 using Font = iTextSharp.text.Font;
 using FontFamily = iTextSharp.text.Font.FontFamily;
 
-namespace SC.FANECOM.SRL
+namespace DMC
 {
     public partial class MainForm : Form
     {
@@ -24,7 +24,7 @@ namespace SC.FANECOM.SRL
         AutoCompleteStringCollection SuppliersCollection = new AutoCompleteStringCollection();
         DataTable SuppliersDataTable = new DataTable();
         bool eventHookedUp = false;
-        string ConnStr = ConfigurationManager.ConnectionStrings["BazaLuFane"].ConnectionString;
+        string ConnStr = ConfigurationManager.ConnectionStrings["BazaLuDMC"].ConnectionString;
         private int _notaRec;
         private int _nrFact;
         private string _fileName;
@@ -174,10 +174,11 @@ namespace SC.FANECOM.SRL
         {
 
             //(balance + deposit + withdrawal).ToString();
-            var tva = 1.24;
+            var tva = 1.19;
             var adaos = 1.1;
             var cantitate = Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells["Cantitate"].Value);
             var pret = Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells["PretFaraTva"].Value);
+            var pretDeVanzare = Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells["PretDeVanzare"].Value);
             if (sender is DataGridView)
             {
                 if (e.ColumnIndex == 3 || e.ColumnIndex == 2)
@@ -185,6 +186,10 @@ namespace SC.FANECOM.SRL
                     //double baseValue = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["PretFaraTva"].Value);
                     this.dataGridView1.Rows[e.RowIndex].Cells["PretDeVanzare"].Value = pret * tva * adaos;
                     this.dataGridView1.Rows[e.RowIndex].Cells["ValLaPretDeVanzare"].Value = pret * tva * adaos * cantitate;
+                }
+                if (e.ColumnIndex == 7)
+                {
+                    this.dataGridView1.Rows[e.RowIndex].Cells["ValLaPretDeVanzare"].Value = pretDeVanzare * cantitate;
                 }
             }
         }
@@ -244,6 +249,7 @@ namespace SC.FANECOM.SRL
                 }
             }
             MyConn.Close();
+            btnAdauga.Enabled = false;
         }
 
         private PdfPCell GetHeaderCell(string text, int hasborder = 1, int hAlignment = 1)
@@ -303,7 +309,7 @@ namespace SC.FANECOM.SRL
 
             var invoicePath = ConfigurationManager.AppSettings["InvoicePath"];
             if (!CheckDirectory(invoicePath)) return;
-            _fileName = invoicePath + "scFANECOMsrl_" + _notaRec + "_" + _nrFact + ".pdf";
+            _fileName = invoicePath + "scDMCsrl_" + _notaRec + "_" + _nrFact + ".pdf";
             FileStream fs = new FileStream(_fileName, FileMode.Create, FileAccess.Write, FileShare.None);
             Document pdfDoc = new Document(PageSize.A4.Rotate(), 20f, 10f, 10f, 0f);
             PdfWriter.GetInstance(pdfDoc, fs);
@@ -432,7 +438,7 @@ namespace SC.FANECOM.SRL
             companyTable.SpacingBefore = 0f;
             companyTable.SpacingAfter = 10f;
 
-            companyTable.AddCell(GetHeaderCell("SC FANE COM SRL", 0, 0));
+            companyTable.AddCell(GetHeaderCell("SC DMC MAT CONSTRUCT SRL-D", 0, 0));
             return companyTable;
         }
 

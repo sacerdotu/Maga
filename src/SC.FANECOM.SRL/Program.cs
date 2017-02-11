@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SC.FANECOM.SRL
+namespace DMC
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace SC.FANECOM.SRL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdjustProducts());
+            Application.Run(new MainForm());
         }
     }
 }

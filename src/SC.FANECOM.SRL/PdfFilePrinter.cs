@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SC.FANECOM.SRL
-{
+namespace DMC
+{ 
     // Some googled inforamtion about command line switches:
     // 
     // AcroRd32.exe filename                                   Executes the reader and displays a file.

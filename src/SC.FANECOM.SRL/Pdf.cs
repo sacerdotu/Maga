@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SC.FANECOM.SRL
+namespace DMC
 {
     public class Pdf
     {
